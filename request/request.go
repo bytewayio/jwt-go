@@ -1,8 +1,9 @@
 package request
 
 import (
-	"jwt-go"
 	"net/http"
+
+	"github.com/bytewayio/jwt-go"
 )
 
 // Extract and parse a JWT token from an HTTP request.

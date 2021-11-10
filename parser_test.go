@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"jwt-go"
-	"jwt-go/test"
+	"github.com/bytewayio/jwt-go"
+	"github.com/bytewayio/jwt-go/test"
 )
 
 var errKeyFunc error = fmt.Errorf("error loading key")

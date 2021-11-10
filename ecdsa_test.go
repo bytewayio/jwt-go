@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"jwt-go"
+	"github.com/bytewayio/jwt-go"
 )
 
 var ecdsaTestData = []struct {

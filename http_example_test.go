@@ -9,14 +9,15 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
-	"jwt-go"
-	"jwt-go/request"
 	"log"
 	"net"
 	"net/http"
 	"net/url"
 	"strings"
 	"time"
+
+	"github.com/bytewayio/jwt-go"
+	"github.com/bytewayio/jwt-go/request"
 )
 
 // location of the files used for signing and verification

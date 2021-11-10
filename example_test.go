@@ -2,8 +2,9 @@ package jwt_test
 
 import (
 	"fmt"
-	"jwt-go"
 	"time"
+
+	"github.com/bytewayio/jwt-go"
 )
 
 // Example (atypical) using the StandardClaims type by itself to parse a token.

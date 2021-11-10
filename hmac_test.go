@@ -2,9 +2,10 @@ package jwt_test
 
 import (
 	"io/ioutil"
-	"jwt-go"
 	"strings"
 	"testing"
+
+	"github.com/bytewayio/jwt-go"
 )
 
 var hmacTestData = []struct {
