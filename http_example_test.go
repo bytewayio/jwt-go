@@ -7,10 +7,10 @@ import (
 	"bytes"
 	"crypto/rsa"
 	"fmt"
-	"github.com/dgrijalva/jwt-go"
-	"github.com/dgrijalva/jwt-go/request"
 	"io"
 	"io/ioutil"
+	"jwt-go"
+	"jwt-go/request"
 	"log"
 	"net"
 	"net/http"
@@ -29,11 +29,6 @@ var (
 	verifyKey  *rsa.PublicKey
 	signKey    *rsa.PrivateKey
 	serverPort int
-	// storing sample username/password pairs
-	// don't do this on a real server
-	users = map[string]string{
-		"test": "known",
-	}
 )
 
 // read the key files before starting http handlers
@@ -54,7 +49,7 @@ func init() {
 	http.HandleFunc("/restricted", restrictedHandler)
 
 	// Setup listener
-	listener, err := net.ListenTCP("tcp", &net.TCPAddr{})
+	listener, _ := net.ListenTCP("tcp", &net.TCPAddr{})
 	serverPort = listener.Addr().(*net.TCPAddr).Port
 
 	log.Println("Listening...")
@@ -62,8 +57,6 @@ func init() {
 		fatal(http.Serve(listener, nil))
 	}()
 }
-
-var start func()
 
 func fatal(err error) {
 	if err != nil {
@@ -212,5 +205,4 @@ func restrictedHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Token is valid
 	fmt.Fprintln(w, "Welcome,", token.Claims.(*CustomClaimsExample).Name)
-	return
 }
